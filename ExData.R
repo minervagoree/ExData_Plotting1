@@ -24,7 +24,7 @@ powGAP <- (powTestSet$Global_active_power)
 
 #plot1
 png(file ="Plot1.png")
-hist(powGAP, col= "red", main = "Global Active Power",xlab="Global Active Power (kilowatts)")
+#hist(powGAP, col= "red", main = "Global Active Power",xlab="Global Active Power (kilowatts)")
 with(powTestSet,hist(powGAP, col= "red", main = "Global Active Power",xlab="Global Active Power (kilowatts)"))
 dev.off() #close the PNG device
 
@@ -43,9 +43,43 @@ head(powDateTime)
 #plot(powDateTime,powGAP)  ## works but used with instead
 #with(powTestSet,plot(powDateTime,PowGAP)) ## testing if plot worked.  yes it worked!
 with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Power (kilowatts)", main="Global Active Power by Day between 2/1/07 and 2/2/07"))
-#       #Now to send a PNG file to my local directory
+#       #Now to send a PNG file to my local directory for plot2
 png(file ="Plot2.png")
 with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Power (kilowatts)", main="Global Active Power by Day between 2/1/07 and 2/2/07"))
+dev.off() #close the PNG device
+
+#plot3
+subMet1 <- (powTestSet$Sub_metering_1)
+subMet2 <- (powTestSet$Sub_metering_2)
+subMet3 <- (powTestSet$Sub_metering_3)
+
+#       #Now to send a PNG file to my local directory for plot3
+png(file ="Plot3.png")
+with(powTestSet,plot(powDateTime,subMet1,type="l",xlab="", ylab="Energy sub metering"))
+with(powTestSet,lines(powDateTime,subMet2,type="l",col="red"))
+with(powTestSet,lines(powDateTime,subMet3,type="l",col="blue"))
+legend("topright", lty1, col=c("black","red", "blue"), legend =c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+dev.off() #close the PNG device
+
+
+#plot4
+#       #Global reactive power plot in preparation to plotting all four
+powGRP <- (powTestSet$Global_reactive_power)
+with(powTestSet,plot(powDateTime,powGRP,type="l",xlab="", ylab="Global_reactive_power"))
+#       #Voltage plot in preparation to plotting all four
+powVoltage <- (powTestSet$Voltage)
+with(powTestSet,plot(powDateTime,powVoltage,type="l",xlab="", ylab="Voltage"))
+#       #code for starting four plot graph
+png(file ="Plot3.png")
+attach(powTestSet)
+par(mfrow=c(2,2))
+with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Power"))
+with(powTestSet,plot(powDateTime,powVoltage,type="l",xlab="", ylab="Voltage"))
+with(powTestSet,plot(powDateTime,subMet1,type="l",xlab="", ylab="Energy sub metering"))
+with(powTestSet,lines(powDateTime,subMet2,type="l",col="red"))
+with(powTestSet,lines(powDateTime,subMet3,type="l",col="blue"))
+legend("topright", lty=1, col=c("black","red", "blue"), legend =c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+with(powTestSet,plot(powDateTime,powGRP,type="l",xlab="", ylab="Global_reactive_power"))
 dev.off() #close the PNG device
 
 
