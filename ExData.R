@@ -70,7 +70,7 @@ with(powTestSet,plot(powDateTime,powGRP,type="l",xlab="", ylab="Global_reactive_
 powVoltage <- (powTestSet$Voltage)
 with(powTestSet,plot(powDateTime,powVoltage,type="l",xlab="", ylab="Voltage"))
 #       #code for starting four plot graph
-png(file ="Plot3.png")
+png(file ="Plot4.png")
 attach(powTestSet)
 par(mfrow=c(2,2))
 with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Power"))
@@ -78,7 +78,7 @@ with(powTestSet,plot(powDateTime,powVoltage,type="l",xlab="", ylab="Voltage"))
 with(powTestSet,plot(powDateTime,subMet1,type="l",xlab="", ylab="Energy sub metering"))
 with(powTestSet,lines(powDateTime,subMet2,type="l",col="red"))
 with(powTestSet,lines(powDateTime,subMet3,type="l",col="blue"))
-legend("topright", lty=1, col=c("black","red", "blue"), legend =c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+legend("topright", bty="n", lty=1, col=c("black","red", "blue"), legend =c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 with(powTestSet,plot(powDateTime,powGRP,type="l",xlab="", ylab="Global_reactive_power"))
 dev.off() #close the PNG device
 
