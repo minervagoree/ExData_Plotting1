@@ -43,6 +43,6 @@ with(powTestSet,hist(powGAP, col= "red", main = "Global Active Power",xlab="Glob
 
 #### PLOT 1 CREATION ##### Print off a PNG copy in the local computer directory
 #### Creates Plot 1 PNG file where we have Global Active Power in kilowatts and frequency
-png(file ="Plot1.png")
+png(file ="Plot1.png",width = 480, height = 480, units = "px")
 with(powTestSet,hist(powGAP, col= "red", main = "Global Active Power",xlab="Global Active Power (kilowatts)"))
 dev.off() #close the PNG device

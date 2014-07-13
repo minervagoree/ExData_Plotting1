@@ -46,7 +46,7 @@ legend("topright", lty1, col=c("black","red", "blue"), legend =c("Sub_metering_1
 
 #### PLOT 3 CREATION ##### Print off a PNG copy in the local computer directory
 #### Creates Plot 3 PNG file where we have days and Energy Submetering in three levels
-png(file ="Plot3.png")
+png(file ="Plot3.png",width = 480, height = 480, units = "px")
 with(powTestSet,plot(powDateTime,subMet1,type="l",xlab="", ylab="Energy sub metering"))
 with(powTestSet,lines(powDateTime,subMet2,type="l",col="red"))
 with(powTestSet,lines(powDateTime,subMet3,type="l",col="blue"))

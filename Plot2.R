@@ -43,6 +43,6 @@ with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Po
 
 #### PLOT 2 CREATION ##### Print off a PNG copy in the local computer directory
 #### Creates Plot 2 PNG file where we have days and Global Active  Power in kilowatts
-png(file ="Plot2.png")
+png(file ="Plot2.png",width = 480, height = 480, units = "px")
 with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Power (kilowatts)"))
 dev.off() #close the PNG device

@@ -52,7 +52,7 @@ with(powTestSet,plot(powDateTime,powGRP,type="l",xlab="", ylab="Global_reactive_
 
 #### PLOT 4 CREATION ##### Print off a PNG copy in the local computer directory
 #### Creates Plot 4 PNG file where we we have four different plots in one Graph
-png(file ="Plot4.png")
+png(file ="Plot4.png",width = 480, height = 480, units = "px")
 attach(powTestSet)
 par(mfrow=c(2,2)) #builds a graph area for a 2 rows of 2 graphs
 with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Power")) #Plot 1
