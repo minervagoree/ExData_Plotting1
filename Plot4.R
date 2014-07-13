@@ -56,10 +56,10 @@ png(file ="Plot4.png",width = 480, height = 480, units = "px")
 attach(powTestSet)
 par(mfrow=c(2,2)) #builds a graph area for a 2 rows of 2 graphs
 with(powTestSet,plot(powDateTime,powGAP,type="l",xlab="", ylab="Global Active Power")) #Plot 1
-with(powTestSet,plot(powDateTime,powVoltage,type="l",xlab="", ylab="Voltage")) #Plot 2
+with(powTestSet,plot(powDateTime,powVoltage,type="l",xlab="datetime", ylab="Voltage")) #Plot 2
 with(powTestSet,plot(powDateTime,subMet1,type="l",xlab="", ylab="Energy sub metering")) #Plot3
 with(powTestSet,lines(powDateTime,subMet2,type="l",col="red"))
 with(powTestSet,lines(powDateTime,subMet3,type="l",col="blue"))
 legend("topright", bty="n", lty=1, col=c("black","red", "blue"), legend =c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-with(powTestSet,plot(powDateTime,powGRP,type="l",xlab="", ylab="Global_reactive_power")) #Plot 4
+with(powTestSet,plot(powDateTime,powGRP,type="l",xlab="datetime", ylab="Global_reactive_power")) #Plot 4
 dev.off() #close the PNG device
